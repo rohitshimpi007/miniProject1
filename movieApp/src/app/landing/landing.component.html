@@ -15,20 +15,21 @@
         Genres
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#" routerLink="/horror">Horror</a>
           <a class="dropdown-item" href="#">Comedy</a>
-          <a class="dropdown-item" href="#">Horror</a>
+          <a class="dropdown-item" href="#">Action</a>
           <a class="dropdown-item" href="#">Romance</a>
     
         </div>
         <li class="nav-item active">
-          <a class="nav-link" href="#"> Git Repo <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="https://github.com/rohitshimpi007/miniProject1/tree/webApp" target="_blank"> Git Repo <span class="sr-only">(current)</span></a>
         </li>
  
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="SearchText" name="Search" >
+      
+      <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
     </form>
   </div>
 </nav>
@@ -42,18 +43,22 @@
      
 
 
-      <div *ngFor="let data of moviesData" class="col-md-4">
+      <div *ngFor="let data of moviesData | search:SearchText " class="col-md-4">
         <div class="card mb-4">
           
           <img [src]="getPosterUrl(data.poster_path)" class="card-img-top" alt="{{ data.original_title }}">
           <div class="card-body">
             <h5 class="card-title">{{ data.original_title }}</h5>
-            <!-- <p class="card-text">{{ data.overview }}</p> -->
             <p>Release Date: {{ data.release_date }}</p>
-            <button type="button" class="btn btn-link">Book My Show</button>
+            <div class="details">
+            <p>{{ data.overview }}</p>
+            
+            <button type="button" class="btn btn-link" routerLink="bookmovie">Book My Show</button>
           </div>
+          
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>

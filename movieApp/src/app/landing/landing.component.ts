@@ -8,7 +8,8 @@ import { ApiCallService } from '../api-call.service';
 })
 export class LandingComponent {
   moviesData:any=[];
-  findData:any=[]
+  findData:any=[];
+  SearchText: string=""
   getPosterUrl(posterPath: string, width: number = 300, height: number = 300): string {
     const basePosterUrl = 'https://image.tmdb.org/t/p/';
     const imageSize = `w${width}_and_h${height}_bestv2/`; 

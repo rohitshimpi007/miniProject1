@@ -15,6 +15,11 @@
   top: -295px
   
 }
+
+// .card:hover.details {
+//   opacity: -1;
+//   font-size: 15px;
+// }
 .divContainer{
   width: 1000px;
   position: relative;
@@ -23,4 +28,28 @@
   /* left: -214px; */
   right: 250px
  
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card .details {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(128, 95, 95, 0.7); /* Adjust background color and opacity */
+  color:lightgreen; /* Text color for details */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.card:hover .details {
+  opacity: 1;
+  font-size: 15px;
 }
